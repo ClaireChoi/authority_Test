@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- DB접속정보 및 TypeAlias Setting -->
+	<properties resource="db.properties"/>
+	
+	<typeAliases>
+		<typeAlias type="org.scit.vo.Seschool" alias="Seschool"/>
+	</typeAliases>
+	
+	<!-- DB접속 정보 셋팅 -->
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 매퍼 파일 포함 -->
+	<mappers>
+		<mapper resource="org/scit/mapper/SeschoolMapper.xml"/>
+	</mappers>
+	
+</configuration>

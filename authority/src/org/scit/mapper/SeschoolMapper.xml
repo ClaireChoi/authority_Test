@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SeschoolMapper">
+
+	<select id="printAll" resultType="Seschool">
+		SELECT * FROM seschool
+	</select>
+
+	<select id="find" parameterType="Seschool" resultType="Seschool">
+		SELECT * FROM seschool WHERE userid=#{userId} AND userpassword=#{userPassword}
+	</select>
+	
+	<update id="grant" parameterType="String">
+		UPDATE seschool SET authority='1' WHERE userid=#{userId}
+	</update>
+</mapper>

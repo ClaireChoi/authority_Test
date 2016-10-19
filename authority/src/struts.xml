@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="/" extends="struts-default, json-default">
+			<default-action-ref name="index"></default-action-ref>
+		
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="login" class="org.scit.action.SeschoolAction" method="login">
+			<result type="redirect" name="success">loginS.action</result>
+			<result name="false">/index.jsp</result>
+		</action>
+		
+		<action name="loginS">
+			<result>/authority.jsp</result>
+		</action>
+		
+		<action name="start" class="org.scit.action.SeschoolAction" method="printAll">
+			<result type="json"/>
+		</action>
+		
+		<action name="grant" class="org.scit.action.SeschoolAction" method="grant">
+			<result type="json"/>
+		</action>
+		
+		<action name="backToIndex">
+			<result type="redirect">index.action</result>
+		</action>
+		
+		<action name="logout" class="org.scit.action.SeschoolAction" method="logout">
+			<result type="redirect">index.action</result>
+		</action>
+		
+		<action name="listView">
+			<result type="redirect">loginS.action</result>
+		</action>
+		
+	</package>
+</struts>
